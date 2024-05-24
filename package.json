@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "powershell -Command \"Remove-Item -Recurse -Force dist; cd ..\\Fullstack-open\\osa2\\puhelinluettelo; npm run build; Copy-Item -Recurse dist ..\\..\\..\\puhelinluettelo_backend\\dist\"",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
   },
   "author": "Janne",
   "license": "MIT",
